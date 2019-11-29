@@ -7,3 +7,9 @@
 
 # .tfvars files
 *.tfvars
+
+# .tfplan files
+*.tfplan
+
+#yaml file directory
+**/yaml_files/*
