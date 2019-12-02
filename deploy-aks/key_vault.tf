@@ -18,13 +18,13 @@ resource "azurerm_key_vault" "advent" {
   sku_name = "standard"
 
   access_policy {
-      tenant_id = data.azurerm_client_config.current.tenant_id
-      object_id = azurerm_user_assigned_identity.aks_user_msi.principal_id
+    tenant_id = data.azurerm_client_config.current.tenant_id
+    object_id = azurerm_user_assigned_identity.aks_user_msi.principal_id
 
-      secret_permissions = [
-          "get",
-          "list",
-      ]
+    secret_permissions = [
+      "get",
+      "list",
+    ]
   }
 
   access_policy {
