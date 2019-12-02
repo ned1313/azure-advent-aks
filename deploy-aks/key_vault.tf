@@ -19,12 +19,24 @@ resource "azurerm_key_vault" "advent" {
 
   access_policy {
       tenant_id = data.azurerm_client_config.current.tenant_id
-      object_id = azurerm_user_assigned_identity.aks_user_msi.client_id
+      object_id = azurerm_user_assigned_identity.aks_user_msi.principal_id
 
       secret_permissions = [
           "get",
           "list",
       ]
+  }
+
+  access_policy {
+    tenant_id = data.azurerm_client_config.current.tenant_id
+    object_id = data.azurerm_client_config.current.object_id
+
+    secret_permissions = [
+      "get",
+      "set",
+      "list",
+      "delete",
+    ]
   }
 
   tags = {
