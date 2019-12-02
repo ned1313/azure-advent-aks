@@ -67,7 +67,7 @@ resource "azurerm_kubernetes_cluster" "advent" {
   }
 
   service_principal {
-    client_id     = azuread_application.aks_sp.application_id
+    client_id     = azuread_service_principal.aks_sp.application_id
     client_secret = random_password.aks_sp.result
   }
 
