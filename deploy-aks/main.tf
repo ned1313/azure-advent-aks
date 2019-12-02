@@ -82,15 +82,3 @@ resource "azurerm_user_assigned_identity" "aks_user_msi" {
 
   name = "aks-user-msi"
 }
-
-output "aks_kube_config" {
-  value = azurerm_kubernetes_cluster.advent.kube_config_raw
-}
-
-output "user_msi_client_id" {
-  value = azurerm_user_assigned_identity.aks_user_msi.client_id
-}
-
-output "user_msi_resource_id" {
-  value = azurerm_user_assigned_identity.aks_user_msi.id
-}
